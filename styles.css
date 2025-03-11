@@ -21,11 +21,6 @@
     --h2-size: 50px;
     --h2-height: 75px;
     --h3-size: 40px;
-    --h4-size: 32px;
-    --h5-size: 28px;
-    --h6-size: 22px;
-    --p-size: 18px;
-    --button-size: 16px;
 
     /* SPACING */
     --spacing-sm: 8px;
@@ -73,6 +68,7 @@ h1 {
     font-size: var(--h1-size);
     letter-spacing: -1px;
     line-height: var(--h1-height);
+    margin: auto;
 }
 
 h2 {
@@ -87,27 +83,7 @@ h3 {
     font-weight: 500;
     font-size: var(--h3-size);
     width: 100%;
-}
-
-h4 {
-    font-family: var(--heading-font);
-    font-weight: 500;
-    font-size: var(--h4-size);
-    letter-spacing: 0.25px;
-}
-
-h5 {
-    font-family: var(--heading-font);
-    font-weight: 500;
-    font-size: var(--h5-size);
-    width: 100%;
-}
-
-h6 {
-    font-family: var(--heading-font);
-    font-weight: 500;
-    font-size: var(--h6-size);
-    width: 100%;
+    margin: auto;
 }
 
 a {
@@ -132,7 +108,7 @@ a:hover {
     border-radius: var(--spacing-sm);
     padding: var(--spacing-md);
     background-color: var(--text-grey-light);
-    color: var(--text-dark);
+    color: var(--text-grey-dark);
     transition: transform 0.3s ease;
 }
 
@@ -143,6 +119,10 @@ a:hover {
     transform: scale(1.1);
 }
 
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
 p {
     font-size: var(--p-size);
@@ -211,6 +191,16 @@ p {
     width: 100%;
     height: 100vh;
     background: url(images/hotel.pic.02.jpg) no-repeat center center/cover;
+}
+
+.background-rooms {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: url(images/room1.jpg) no-repeat center center/cover;
 }
 
 .background-content {
@@ -348,6 +338,8 @@ p {
 /* FACILITY PAGE */
 /* FACILITY PAGE */
 /* FACILITY PAGE */
+
+
 .container-flex h1 {
     margin-bottom: 0;
     padding-bottom: -200px;
@@ -500,4 +492,187 @@ p {
 
 .side-line-right {
     right: -50px;
+}
+
+/* ROOMS PAGE STYLES */
+/* ROOMS PAGE STYLES */
+/* ROOMS PAGE STYLES */
+
+.rooms-rate {
+    margin-top: var(--spacing-lg);
+    padding-bottom: 0;
+}
+
+.rooms-rate-text {
+    margin-top: 0;
+    width: 80%;
+    margin: auto;
+}
+
+
+/* slides styles */
+
+.slides {
+    padding: 0;
+    width: 609px;
+    height: 420px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slides * {
+    -webkit-user-select: none;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+
+    -webkit-touch-callout: none;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide-container {
+    display: block;
+}
+
+.slide {
+    top: 0;
+    opacity: 0;
+    width: 609px;
+    height: 420px;
+    display: block;
+    position: absolute;
+
+    transform: scale(0);
+
+    transition: all .7s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.nav label {
+    width: 200px;
+    height: 100%;
+    display: none;
+    position: absolute;
+
+    opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+
+    transition: opacity .2s;
+
+    color: #FFF;
+    font-size: 156pt;
+    text-align: center;
+    line-height: 380px;
+    font-family: "Varela Round", sans-serif;
+    background-color: rgba(255, 255, 255, .3);
+    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+}
+
+.slide:hover+.nav label {
+    opacity: 0.5;
+}
+
+.nav label:hover {
+    opacity: 1;
+}
+
+.nav .next {
+    right: 0;
+}
+
+input:checked+.slide-container .slide {
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked+.slide-container .nav label {
+    display: block;
+}
+
+.nav-dots {
+    width: 100%;
+    bottom: 9px;
+    height: 11px;
+    display: block;
+    position: absolute;
+    text-align: center;
+}
+
+.nav-dots .nav-dot {
+    top: -5px;
+    width: 11px;
+    height: 11px;
+    margin: 0 4px;
+    position: relative;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: var(--text-grey-light);
+}
+
+.nav-dots .nav-dot:hover {
+    cursor: pointer;
+    background-color: var(--text-grey-light);
+}
+
+input#img-1:checked~.nav-dots label#img-dot-1,
+input#img-2:checked~.nav-dots label#img-dot-2,
+input#img-3:checked~.nav-dots label#img-dot-3 {
+    background: var(--text-grey-dark);
+}
+
+input[id^="slider1-img-1"]:checked~.nav-dots label[for="slider1-img-1"],
+input[id^="slider1-img-2"]:checked~.nav-dots label[for="slider1-img-2"],
+input[id^="slider1-img-3"]:checked~.nav-dots label[for="slider1-img-3"] {
+    background: var(--text-grey-dark);
+}
+
+input[id^="slider2-img-1"]:checked~.nav-dots label[for="slider2-img-1"],
+input[id^="slider2-img-2"]:checked~.nav-dots label[for="slider2-img-2"],
+input[id^="slider2-img-3"]:checked~.nav-dots label[for="slider2-img-3"] {
+    background: var(--text-grey-light);
+}
+
+/* below slider */
+.slider-container {
+    position: relative;
+    border: 1px solid var(--text-grey-dark);
+    border-radius: 0 0 10px 10px;
+}
+
+.below-slider {
+    position: relative;
+    bottom: 33px;
+    width: 100%;
+}
+
+.below-slider h1 {
+    background-color: var(--text-grey-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-grey-light);
+}
+
+.room-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: var(--spacing-lg) 0 0 0;
+}
+
+.room-details .btn {
+    border: 1px solid var(--text-grey-dark);
 }
